@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        body.dark-mode {
+            background: #111827;
+            color: #f9fafb;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .container {
+            background: #1f2937;
+        }
+
+        h1 {
+            margin-bottom: 24px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 24px;
+            padding: 12px 20px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Dark Mode Toggle</h1>
+
+    <p>
+        Click the button below to switch between light mode and dark mode.
+    </p>
+
+    <button id="toggleButton">
+        Enable Dark Mode
+    </button>
+
+</div>
+
+<script>
+    let isDark = false;
+    toggleButton.addEventListener('click', () => {
+        isDark = !isDark;
+        if (isDark) {
+            document.body.classList.add('dark-mode')
+            toggleButton.innerHTML = 'Disable Dark Mode';
+        } else {
+            document.body.classList.remove('dark-mode')
+            toggleButton.innerHTML = 'Enable Dark Mode';
+        }
+    })
+</script>
+
+</body>
+</html>

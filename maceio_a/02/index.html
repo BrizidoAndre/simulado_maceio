@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .paragraph {
+            text-decoration: underline dotted;
+            text-underline-offset: .25rem;
+            cursor: pointer;
+        }
+
+        .paragraph:hover + .tooltip {
+            display: block;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+            padding: .25rem .5rem;
+            background: black;
+            border-radius: .25rem;
+            color: white;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 99%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 5px;
+            background: black;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p class="paragraph">Hover over me</p>
+    <p class="tooltip">Some Tooltip text</p>
+</div>
+</body>
+</html>

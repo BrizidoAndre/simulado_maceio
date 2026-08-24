@@ -1,0 +1,155 @@
+/*reset everything across all browsers*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/**
+creating variables
+ */
+:root {
+    /* color variables*/
+    --blue: hsl(233, 26%, 24%);
+    --green: hsl(136, 64%, 51%);
+    --cyan: hsl(192, 69%, 51%);
+
+    --gray-strong: hsl(233, 8%, 62%);
+    --gray: hsl(220, 16%, 96%);
+    --gray-weak: hsl(0, 0%, 98%);
+    --white: hsl(0, 100%, 100%);
+    --black: #a5a7b2;
+
+    /*size variables*/
+    --font-size: 18px;
+    /*font weight variables*/
+    --weak: 300;
+    --normal: 400;
+    --strong: 700;
+    /*    margin variables*/
+    --width: clamp(300px, 85%, 1200px);
+    --vertical-margin: 4rem;
+}
+
+/*defining common color variables*/
+.blue {
+    color: var(--blue);
+}
+
+.bg-blue {
+    background: var(--blue);
+}
+
+.green {
+    color: var(--green);
+}
+
+.bg-green {
+    background: var(--green);
+}
+
+.cyan {
+    color: var(--cyan);
+}
+
+.bg-cyan {
+    background: var(--cyan);
+}
+
+.gray-strong {
+    color: var(--gray-strong);
+}
+
+.bg-gray-strong {
+    background: var(--gray-strong);
+}
+
+.gray {
+    color: var(--gray);
+}
+
+.bg-gray {
+    background: var(--gray);
+}
+
+.gray-weak {
+    color: var(--gray-weak);
+}
+
+.bg-gray-weak {
+    background: var(--gray-weak);
+}
+
+.white {
+    color: var(--white);
+}
+
+.bg-white {
+    background: var(--white);
+}
+
+/*calling font families*/
+@font-face {
+    font-family: 'Public-Sans';
+    src: url("assets/fonts/PublicSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: 'Public-Sans-Italic';
+    src: url("assets/fonts/PublicSans-Italic-VariableFont_wght.ttf");
+}
+
+/*font classes*/
+.public-sans {
+    font-family: 'Public-Sans', "Segoe UI", sans-serif;
+}
+
+.public-italic {
+    font-family: 'Public-Sans-Italic', sans-serif;
+}
+
+/*font weight classes*/
+
+.text-weak {
+    font-weight: var(--weak);
+}
+
+.text-normal {
+    font-weight: var(--normal);
+}
+
+.text-strong {
+    font-weight: var(--strong);
+}
+
+/*width control classes*/
+.size {
+    width: var(--width);
+}
+
+.size-center {
+    width: var(--width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*margin common classes*/
+.mb-1 {
+    margin-bottom: calc(1 * .5rem);
+}
+
+.mb-2 {
+    margin-bottom: calc(2 * .5rem);
+}
+
+.mb-3 {
+    margin-bottom: calc(3 * .5rem);
+}
+
+.mb-4 {
+    margin-bottom: calc(4 * .5rem);
+}
+
+.mb-5 {
+    margin-bottom: calc(5 * .5rem);
+}

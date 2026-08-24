@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Character Counter</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f3f4f6;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 24px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 180px;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        .counter {
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        .limit-warning {
+            color: #dc2626;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Live Character Counter</h1>
+
+    <textarea
+            id="textArea"
+            placeholder="Start typing here..."
+    ></textarea>
+
+    <div
+            class="counter"
+            id="counter"
+    >
+        <span id="chars">0</span> / 200 characters
+    </div>
+
+</div>
+<script>
+    const textElement = document.getElementById('textArea');
+    textElement.addEventListener('input', (ev) => {
+        let count = ev.target.value.length;
+        chars.innerHTML = count;
+        if (count > 200) {
+            counter.classList.add('limit-warning');
+        }else{
+            counter.classList.remove('limit-warning');
+        }
+    })
+</script>
+</body>
+</html>

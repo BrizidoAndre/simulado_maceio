@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .title {
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: white 1px 0 10px;
+        }
+
+        .scene {
+            width: 500px;
+            height: 500px;
+            perspective: 1000px;
+            margin-top: 10rem;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .8s;
+        }
+
+        .circle {
+            position: absolute;
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            --color: #003c7c;
+            border: 3px solid var(--color);
+            box-shadow: 0 0 10px 0 var(--color),
+            inset 0 0 10px 0 var(--color);
+            padding: 1.5rem;
+        }
+
+        .circle-2 {
+            width: 90%;
+            --color: #0053a8;
+        }
+
+        .circle-3 {
+            width: 80%;
+            --color: #1267b6;
+        }
+
+        .circle-4 {
+            width: 70%;
+            --color: #7fc0ff;
+        }
+
+        .circle-5 {
+            width: 60%;
+            --color: #95cbff;
+        }
+
+        .circle-6 {
+            width: 50%;
+            --color: #9ccdff;
+        }
+
+        .circle-7 {
+            width: 40%;
+            --color: #b2d9ff;
+        }
+
+        .circle-8 {
+            width: 30%;
+            --color: #dbedff;
+        }
+
+        .circle-9 {
+            width: 20%;
+            --color: #ffffff;
+        }
+
+        .circle {
+            animation: pulse 2s infinite ease-in-out alternate;
+            animation-play-state: paused;
+        }
+
+        .scene:hover .wrapper,
+        .active {
+            transform: rotateY(-45deg) rotateX(-45deg);
+        }
+
+        .scene:hover .wrapper .circle {;
+            animation-play-state: running;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: translateZ(0px);
+            }
+            to {
+                transform: translateZ(-300px) scale(.8);
+            }
+        }
+    </style>
+</head>
+<body>
+<h1 class="title">Press Space Bar | 1-9</h1>
+<div class="scene">
+    <div class="wrapper" id="wrapper">
+        <div class="circle circle-1" style="animation-delay: 1.6s">
+        </div>
+        <div class="circle circle-2" style="animation-delay: 1.4s">
+        </div>
+        <div class="circle circle-3" style="animation-delay: 1.2s">
+        </div>
+        <div class="circle circle-4" style="animation-delay: 1s">
+        </div>
+        <div class="circle circle-5" style="animation-delay: .8s">
+        </div>
+        <div class="circle circle-6" style="animation-delay: .6s">
+        </div>
+        <div class="circle circle-7" style="animation-delay: .4s">
+        </div>
+        <div class="circle circle-8" style="animation-delay: .2s">
+        </div>
+        <div class="circle circle-9" style="animation-delay: 0s">
+        </div>
+    </div>
+</div>
+<script>
+    const circles = document.querySelectorAll('.circle');
+    const wrapper = document.getElementById('wrapper');
+
+    function keydown(ev) {
+        let {key} = ev;
+        if (/[1-9]/.test(key)) {
+            const revCircles = [...circles].reverse();
+            const isRunning = revCircles[key - 1].style.animationPlayState === 'running';
+            revCircles[key - 1].style.animationPlayState = isRunning ? 'paused' : 'running';
+        }else{
+            wrapper.classList.toggle('active');
+        }
+    }
+
+    window.addEventListener('keydown', keydown);
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+:root {
+    --blue: #0098ca;
+    --ribbon: #0076a6;
+    --sand: #675039;
+    --glass: #bedbe7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--blue);
+}
+
+.hourglass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.half {
+    width: 350px;
+    height: 250px;
+    background: var(--glass);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.bottom {
+    transform: rotate(180deg);
+}
+
+.ribbon {
+    margin: -3.5rem 0;
+    z-index: 1;
+    width: 120px;
+    height: 60px;
+    background: var(--ribbon);
+    clip-path: polygon(0 0, 100% 0, 80% 50%, 100% 100%, 0 100%, 20% 50%);
+}
+
+.background {
+    background: white;
+    width: 80%;
+    height: 80%;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    position: relative;
+}
+
+.sand {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: var(--sand);
+}
+
+.top .sand {
+    bottom: 0;
+    animation: sizing linear 3s infinite;
+}
+
+.bottom .sand {
+    top: 0;
+    animation: sizing linear 3s infinite reverse;
+}
+
+.bottom .background::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100%;
+    background: var(--sand);
+}
+
+@keyframes sizing {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0%;
+    }
+}
+
+.hourglass {
+    animation: rotate-spin 3s infinite linear;
+}
+
+@keyframes rotate-spin {
+    from {
+        rotate: 0deg;
+    }
+    95% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 180deg;
+    }
+}

@@ -1,0 +1,60 @@
+@import './bootstrap.min.css';
+
+:root {
+    --green: #3AA394;
+    --sand: #D3AD69;
+    --brown-dark: #312B2D;
+    --brown: #4C4347;
+    --brown-light: #6E5C62;
+}
+
+.green {
+    color: var(--green);
+}
+
+.bg-green {
+    background: var(--green);
+}
+
+.sand {
+    color: var(--sand);
+}
+
+.bg-sand {
+    background: var(--sand);
+}
+
+.brown-dark {
+    color: var(--brown-dark);
+}
+
+.bg-brown-dark {
+    background: var(--brown-dark);
+}
+
+.brown {
+    color: var(--brown);
+}
+
+.bg-brown {
+    background: var(--brown);
+}
+
+.brown-light {
+    color: var(--brown-light);
+}
+
+.bg-brown-light {
+    background: var(--brown-light);
+}
+
+.btn-start {
+    padding: .5rem 3rem;
+    border-radius: .5rem;
+    font-weight: bolder;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: white;
+    background: #0083ac;
+    border: none;
+}

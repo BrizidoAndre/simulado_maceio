@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Gallery</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .grid-images {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: .5rem;
+        }
+
+        .image-preview {
+            width: 100%;
+            object-fit: cover;
+            border-radius: .5rem;
+            transition: .4s;
+            cursor: pointer;
+        }
+
+        .image-preview:hover{
+            transform: scale(1.05);
+        }
+
+        .image-selected {
+            border: 3px solid var(--bs-blue);
+        }
+    </style>
+</head>
+<body class="container py-5">
+<div class="shadow rounded-3 p-3">
+    <h1>Dynamic Image Gallery</h1>
+    <img src="images/image1.jpg" alt="Preview of the image" id="preview" class="w-100 rounded-3 my-3">
+    <div class="grid-images">
+        <img class="image-preview image-selected" src="images/image1.jpg" alt="First image">
+        <img class="image-preview" src="images/image2.jpg" alt="Second image">
+        <img class="image-preview" src="images/image3.jpg" alt="Third image">
+        <img class="image-preview" src="images/image4.jpg" alt="Forth image">
+        <img class="image-preview" src="images/image5.jpg" alt="Fifth image">
+    </div>
+</div>
+<script>
+    const images = document.querySelectorAll('.image-preview');
+    const preview = document.getElementById('preview');
+    images.forEach(im => {
+        im.addEventListener('click', (ev) => {
+            preview.src = im.src;
+            images.forEach(im => {
+                im.classList.remove('image-selected')
+            })
+            im.classList.add('image-selected')
+        })
+    })
+</script>
+</body>
+</html>
